@@ -1,0 +1,25 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+
+# Environment variables
+.env
+.env.local
+
+# Dependencies
+node_modules/
+vendor/
+
+# Build output
+dist/
+build/
+out/ 

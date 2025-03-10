@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historical Performance</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>HISTORICAL PERFORMANCE</h1>
+        
+        <div class="description">
+            <p>Select up to five (5) funds and a date range to view historical performance data.</p>
+            <a href="#" class="get-prices">GET HISTORICAL PRICES &#x2192;</a>
+        </div>
+
+        <div class="steps-container">
+            <div class="step">
+                <h2>STEP 1: SELECT A FUND</h2>
+                <div class="select-container">
+                    <select id="fundSelect">
+                        <option value="absolute-return-bond">Absolute Return Bond</option>
+                    </select>
+                    <a href="#" class="add-fund">Add Fund</a>
+                </div>
+            </div>
+
+            <div class="step">
+                <h2>STEP 2: SELECT HISTORICAL TIME PERIOD</h2>
+                <div class="time-period-container">
+                    <div class="select-container">
+                        <select id="monthSelect">
+                            <option value="" selected>Month-End</option>
+                            <option value="january">January</option>
+                            <option value="february">February</option>
+                            <option value="march">March</option>
+                            <option value="april">April</option>
+                            <option value="may">May</option>
+                            <option value="june">June</option>
+                            <option value="july">July</option>
+                            <option value="august">August</option>
+                            <option value="september">September</option>
+                            <option value="october">October</option>
+                            <option value="november">November</option>
+                            <option value="december">December</option>
+                        </select>
+                    </div>
+                    <div class="select-container">
+                        <select id="yearSelect">
+                            <option value="" selected>Year</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="comparing-section">
+            <div class="comparing">
+                <h3>COMPARING:</h3>
+                <div class="selected-funds">
+                    <!-- Removing the default fund tag -->
+                </div>
+                <a href="#" class="clear-all">Clear All</a>
+            </div>
+        </div>
+
+        <button class="get-history">Get History</button>
+        
+        <!-- Container for historical data table -->
+        <div id="historicalTableContainer"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

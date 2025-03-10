@@ -1,0 +1,567 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.container {
+    background-color: white;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+h1 {
+    color: #002B5C;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.description {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.description p {
+    color: #333;
+    font-size: 16px;
+}
+
+.get-prices {
+    color: #002B5C;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.steps-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.step h2 {
+    color: #002B5C;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.select-container {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    appearance: none;
+    background: white;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+select:focus {
+    outline: none;
+    border-color: #002B5C;
+    box-shadow: 0 0 0 2px rgba(0, 43, 92, 0.1);
+}
+
+select.has-value {
+    color: #002B5C;
+    font-weight: 500;
+}
+
+select.focused {
+    border-color: #002B5C;
+}
+
+.select-container::after {
+    content: '▼';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #002B5C;
+    pointer-events: none;
+    font-size: 12px;
+    transition: transform 0.3s;
+}
+
+.select-container:focus-within::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+select option:disabled {
+    color: #999;
+    font-style: italic;
+}
+
+select option:checked {
+    background-color: #002B5C;
+    color: white;
+}
+
+.time-period-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.time-period-container .select-container {
+    position: relative;
+}
+
+.add-fund {
+    color: #002B5C;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.comparing-section {
+    margin-bottom: 30px;
+}
+
+.comparing {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.comparing h3 {
+    color: #002B5C;
+    font-size: 16px;
+}
+
+.selected-funds {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.fund-tag {
+    background-color: #002B5C;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.fund-tag .remove {
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.clear-all {
+    color: #002B5C;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.get-history {
+    background-color: #E5C584;
+    color: #002B5C;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    float: right;
+    transition: background-color 0.3s;
+}
+
+.get-history:hover {
+    background-color: #d4b674;
+}
+
+.close-button {
+    float: right;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.selected-fund {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+}
+
+.selected-fund .remove {
+    margin-left: 5px;
+    cursor: pointer;
+    color: #666;
+}
+
+.historical-table-container {
+    margin-top: 2rem;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.disclaimer {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    max-width: 100%;
+}
+
+.sales-type-selector {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.sales-type-label {
+    font-weight: bold;
+    margin-right: 1rem;
+}
+
+.sales-type-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.sales-type-buttons button {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+}
+
+.sales-type-buttons button.active {
+    background: #003366;
+    color: white;
+}
+
+.historical-data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.historical-data-table th,
+.historical-data-table td {
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.historical-data-table th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+
+.historical-data-table thead tr:first-child th {
+    background-color: #003366;
+    color: white;
+}
+
+.historical-data-table td:first-child {
+    text-align: left;
+    font-weight: bold;
+}
+
+.view-link {
+    color: #003366;
+    text-decoration: none;
+}
+
+.view-link:hover {
+    text-decoration: underline;
+}
+
+/* Make the table responsive */
+@media (max-width: 1200px) {
+    .historical-table-container {
+        overflow-x: auto;
+    }
+    
+    .historical-data-table {
+        min-width: 1000px;
+    }
+}
+
+/* Style for select when opened */
+select[size]:not([size="1"]) {
+    height: auto;
+    border: 1px solid #ccc;
+}
+
+select[size]:not([size="1"]) option {
+    padding: 8px 15px;
+}
+
+select[size]:not([size="1"]) option.month-end-header {
+    background-color: #0066CC;
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px;
+}
+
+/* Additional styles for the opened state */
+.select-container.open select {
+    border-color: #0066CC;
+}
+
+/* Ensure the dropdown options are properly spaced */
+select option + option {
+    margin-top: 2px;
+}
+
+/* Month-End header styling */
+.month-end-header {
+    background-color: #002B5C;
+    color: white;
+    font-weight: bold;
+}
+
+/* Month options styling */
+.month-option {
+    padding: 8px 12px;
+    color: #333;
+}
+
+.month-option:hover {
+    background-color: #f5f5f5;
+}
+
+/* Featured fund styling */
+.featured-fund {
+    font-weight: bold;
+    color: #002B5C;
+}
+
+.historical-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    margin: 20px 0;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.historical-table th,
+.historical-table td {
+    padding: 12px 8px;
+    text-align: right;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.historical-table .align-left {
+    text-align: left;
+}
+
+/* Header Styles */
+.historical-table .main-header th {
+    background-color: #003057;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+}
+
+.historical-table .sub-header th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+    text-align: left;
+    padding: 12px 8px;
+    border-bottom: 2px solid #ddd;
+}
+
+.historical-table .sub-header th.returns-header,
+.historical-table .sub-header th.expense-header {
+    text-align: center;
+}
+
+.historical-table .column-header th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+    padding: 12px 8px;
+    white-space: nowrap;
+    border-bottom: 2px solid #ddd;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1.2;
+}
+
+/* Specific styling for the QSEC Returns header */
+.historical-table .column-header th:nth-child(5) {
+    line-height: 1.1;
+    padding: 8px 4px;
+}
+
+/* Center align the numeric columns */
+.historical-table .column-header th:nth-child(n+5),
+.historical-table tbody td:nth-child(n+5) {
+    text-align: center;
+}
+
+/* Update the first column header to match the image */
+.historical-table .sub-header th:first-child {
+    font-size: 15px;
+    color: #333;
+}
+
+/* Fund Name Column */
+.historical-table .fund-name {
+    font-weight: bold;
+    color: #003057;
+}
+
+/* Returns Section */
+.historical-table .returns-header {
+    background-color: #f5f5f5;
+    font-weight: bold;
+    padding: 12px 8px;
+    line-height: 1.4;
+}
+
+/* Expense Ratio Section */
+.historical-table .expense-header {
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+
+/* Data Cells */
+.historical-table tbody td {
+    border: 1px solid #ddd;
+}
+
+/* Alternating Row Colors */
+.historical-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Hover Effect */
+.historical-table tbody tr:hover {
+    background-color: #f0f0f0;
+}
+
+/* Container Styling */
+#historicalTableContainer {
+    margin: 20px;
+    overflow-x: auto;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+    .historical-table {
+        font-size: 13px;
+    }
+    
+    .historical-table th,
+    .historical-table td {
+        padding: 8px 6px;
+    }
+}
+
+/* Add percentage sign after numeric values except for view link */
+.historical-table tbody td:nth-child(n+6):nth-child(-n+13)::after {
+    content: '%';
+    margin-left: 2px;
+}
+
+/* Specific styling for QSEC Returns cell */
+.historical-table td.qsec-returns {
+    text-align: center;
+}
+
+/* Expense header styling */
+.historical-table .expense-header {
+    background-color: #f5f5f5;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Date column in expense section */
+.historical-table .column-header th:last-child {
+    font-size: 14px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.class-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.class-button {
+    padding: 8px 20px;
+    background-color: #003057;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.class-button:hover {
+    background-color: #004880;
+}
+
+.sales-type-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.sales-type-container h3 {
+    color: #003057;
+    font-size: 16px;
+    margin: 0;
+}
+
+.sales-type-buttons {
+    display: flex;
+    gap: 0;
+}
+
+.sales-type-button {
+    padding: 8px 20px;
+    background-color: white;
+    color: #003057;
+    border: 1px solid #003057;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.sales-type-button:first-child {
+    border-right: none;
+}
+
+.sales-type-button.active {
+    background-color: #003057;
+    color: white;
+} 
